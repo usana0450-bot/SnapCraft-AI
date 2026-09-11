@@ -1,0 +1,6 @@
+{
+  "name": "SnapCraft AI",
+  "description": "VIP Telegram Mini App featuring AI photo tools, daily streak gamification, mystery lucky spin wheel, and Supabase live synchronization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
