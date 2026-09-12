@@ -6,7 +6,7 @@
 
 declare global {
   interface Window {
-    show_rewarded_ad?: (onComplete: () => void) => void;
+    show_11780014?: () => Promise<void>;
     monetag?: {
       rewarded?: {
         show: () => Promise<boolean>;
@@ -43,8 +43,8 @@ export class MonetagService {
    */
   public static triggerNativeAd(onSuccess: () => void): boolean {
     try {
-      if (typeof window.show_rewarded_ad === 'function') {
-        window.show_rewarded_ad(onSuccess);
+      if (typeof (window as any).show_11780014 === 'function') {
+        (window as any).show_11780014().then(() => onSuccess());
         return true;
       }
       if (window.monetag?.rewarded?.show) {
