@@ -1,6 +1,6 @@
 {
-  "name": "SnapCraft AI",
-  "description": "VIP Telegram Mini App featuring AI photo tools, daily streak gamification, mystery lucky spin wheel, and Supabase live synchronization.",
+  "name": "CyberTap Telegram Mini App",
+  "description": "Ultra-realistic cyberpunk Telegram tap-to-earn mini app with real-time energy regeneration, upgradeable mining cards, daily tasks, TON wallet integration, and Supabase cloud synchronization.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

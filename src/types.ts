@@ -1,51 +1,80 @@
-export interface TelegramUser {
-  id: number;
-  first_name: string;
-  last_name?: string;
-  username?: string;
-  language_code?: string;
-  is_premium?: boolean;
-  photo_url?: string;
-}
-
 export interface UserProfile {
-  id?: string;
-  telegram_id: number;
-  first_name: string;
+  id: string;
+  telegramId?: number;
   username: string;
-  points: number;
-  streak_count: number;
-  last_claim_date: string | null;
-  spins_left: number;
-  vip_level: 'Bronze' | 'Silver' | 'Gold' | 'VIP Diamond';
-  created_at?: string;
-  updated_at?: string;
+  firstName: string;
+  avatarUrl: string;
+  isPremium: boolean;
+  level: number;
+  rankTitle: string;
 }
 
-export interface WheelSegment {
+export interface FloatingText {
+  id: number;
+  x: number;
+  y: number;
+  value: number;
+  isCritical?: boolean;
+}
+
+export interface MiningCard {
   id: string;
-  label: string;
-  rewardType: 'points' | 'spins' | 'vip' | 'ai_credit';
-  amount: number;
-  color: string;
-  textColor: string;
-  probability: number; // weight
+  title: string;
+  category: 'tech' | 'markets' | 'legal' | 'special';
+  description: string;
+  icon: string;
+  level: number;
+  baseCost: number;
+  costMultiplier: number;
+  baseProfitPerHour: number;
+  profitMultiplier: number;
+  unlocked: boolean;
+  requiredCardId?: string;
+  requiredLevel?: number;
 }
 
 export interface TaskItem {
   id: string;
   title: string;
+  description: string;
   reward: number;
-  category: 'social' | 'creative' | 'invite' | 'ads';
-  iconName: string;
-  actionUrl?: string;
+  icon: string;
+  type: 'social' | 'daily' | 'action';
+  link?: string;
   completed: boolean;
-  buttonLabel: string;
+  claimed: boolean;
 }
 
-export type ActiveTab = 'ai-tools' | 'lucky-spin' | 'streaks' | 'profile';
+export interface DailyStreakDay {
+  day: number;
+  reward: number;
+  claimed: boolean;
+  isCurrent: boolean;
+}
 
-export interface AdWatchReward {
-  type: 'spin' | 'points' | 'double_streak';
-  amount: number;
+export interface GameState {
+  balance: number;
+  totalMined: number;
+  energy: number;
+  maxEnergy: number;
+  energyRegenPerSec: number;
+  tapValue: number;
+  profitPerHour: number;
+  lastTapTimestamp: number;
+  lastEnergyUpdateTimestamp: number;
+  lastOfflineEarningsCheck: number;
+  user: UserProfile;
+  cards: MiningCard[];
+  tasks: TaskItem[];
+  dailyStreak: number;
+  lastStreakClaimDate: string;
+  dailyComboSolved: boolean;
+  dailyComboSelection: string[];
+  turboActiveUntil: number;
+  freeEnergyRefillsLeft: number;
+  lastRefillDate: string;
+  walletConnected: boolean;
+  walletAddress: string | null;
+  supabaseSynced: boolean;
+  lastSyncTimestamp: number;
 }
